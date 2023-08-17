@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "835597f6-3c20-4883-b621-73395d5d2bf9"
+      }
+    },
+    "owner": "quillon"
   }
 }
