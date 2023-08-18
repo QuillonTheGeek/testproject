@@ -10,7 +10,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useState } from "react";
 
 const LoginScreen = ({ navigation }) => {
-  const [userName, setUsername] = useState("");
+  const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
   const cancelLogin = () => {
@@ -29,7 +29,7 @@ const LoginScreen = ({ navigation }) => {
       Alert.alert("Please enter a password");
     } else {
       AsyncStorage.getItem("userLoggedIn", (err, result) => {
-        //   check if a usser is logged in
+        //   check if a user is logged in
         if (result !== "none") {
           Alert.alert("Someone is logged in");
         } else {
@@ -54,7 +54,7 @@ const LoginScreen = ({ navigation }) => {
             }
             // If no results
             else {
-              Alert.alert(`No account for ${username}`);
+              Alert.alert(`No account for ${userName}`);
             }
           });
         }
@@ -77,7 +77,7 @@ const LoginScreen = ({ navigation }) => {
         onChangeText={setPassword}
         value={password}
       />
-      <Text style={styles.inputs}>Enter Password</Text>
+      <Text style={styles.labels}>Enter Password</Text>
 
       <TouchableHighlight onPress={loginUser} underlayColor="#000000">
         <Text style={styles.buttons}>Login</Text>
@@ -98,11 +98,13 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     paddingBottom: "45%",
-    paddingTop: "5%",
+    paddingTop: "35%",
   },
   heading: {
-    fontSize: 20,
+    fontSize: 25,
     fontWeight: "bold",
+    textTransform: "uppercase",
+    marginBottom: 15,
   },
   inputs: {
     width: "80%",
@@ -111,6 +113,7 @@ const styles = StyleSheet.create({
     height: 45,
     fontSize: 16,
     fontColor: "#000000",
+    paddingLeft: 10,
   },
   buttons: {
     padding: 15,
