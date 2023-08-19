@@ -1,4 +1,4 @@
-import { TouchableHighlight, View } from "react-native";
+import { TouchableHighlight, View, StyleSheet, Text } from "react-native";
 
 const QuizFinish = ({ route, navigation }) => {
   const { score, missed, questions } = route.params;
@@ -8,7 +8,7 @@ const QuizFinish = ({ route, navigation }) => {
   };
 
   return (
-    <View style={styles.coontainer}>
+    <View style={styles.container}>
       <Text>Your quiz score was {score}</Text>
       <Text>
         Your missed on {missed} out of {questions} questions

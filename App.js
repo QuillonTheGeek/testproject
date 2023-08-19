@@ -9,12 +9,20 @@ import LoginScreen from "./app/views/Login";
 import PicsHeader from "./app/components/Header";
 import Blog from "./app/views/Blog.js";
 import BlogDetail from "./app/views/BlogDetails.js";
+import QuizFinish from "./app/views/QuizFinish";
+import Quiz from "./app/views/Quiz";
 
 const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen
+          name="QuizFinish"
+          component={QuizFinish}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen name="Quiz" component={Quiz} options={{ title: "" }} />
         <Stack.Screen
           name="BlogDetail"
           component={BlogDetail}

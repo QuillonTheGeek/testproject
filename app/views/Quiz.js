@@ -70,7 +70,7 @@ const Quiz = ({ navigation }) => {
     });
   };
   return (
-    <View style={StyleSheet.container}>
+    <View style={styles.container}>
       <Text>{selectedQuiz}</Text>
       {questLoaded && (
         <FlatList
@@ -79,10 +79,10 @@ const Quiz = ({ navigation }) => {
           renderItem={({ item }) => (
             <Question
               question={item.question}
-              answer1={answer1}
-              answer2={answer2}
-              answer3={answer3}
-              answer4={answer4}
+              answer1={item.answer1}
+              answer2={item.answer2}
+              answer3={item.answer3}
+              answer4={item.answer4}
               correctAnswer={item.correctAnswer}
               scoreUpdate={updateScore}
               worth={questionWorth}
@@ -91,12 +91,12 @@ const Quiz = ({ navigation }) => {
         />
       )}
       {completedQuiz && (
-        <TouchableHighlight onPress={finishQuiz} style={style.enabled}>
+        <TouchableHighlight onPress={finishQuiz} style={styles.enabled}>
           <Text>Touch to Finish</Text>
         </TouchableHighlight>
       )}
       {!completedQuiz && (
-        <TouchableHighlight style={style.enabled}>
+        <TouchableHighlight style={styles.enabled}>
           <Text>Answer all questions</Text>
         </TouchableHighlight>
       )}

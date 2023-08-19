@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, TouchableHighlight, Text } from "react-native";
+import { Text, View, StyleSheet, TouchableHighlight } from "react-native";
 
 const Question = (props) => {
   const [selected, setSelected] = useState(false);
