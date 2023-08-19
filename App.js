@@ -7,12 +7,24 @@ import AboutScreen from "./app/views/About";
 import RegisterScreen from "./app/views/Register";
 import LoginScreen from "./app/views/Login";
 import PicsHeader from "./app/components/Header";
+import Blog from "./app/views/Blog.js";
+import BlogDetail from "./app/views/BlogDetails.js";
 
 const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen
+          name="BlogDetail"
+          component={BlogDetail}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Blog"
+          component={Blog}
+          options={{ title: "PicsHub Blog" }}
+        />
         <Stack.Screen
           name="Register"
           component={RegisterScreen}

@@ -60,7 +60,7 @@ const RegisterScreen = ({ navigation }) => {
         value={confirmPassword}
         secureTextEntry={true}
       />
-      <Text style={styles.labels}>Enter confirmPassword</Text>
+      <Text style={styles.labels}>Enter Confirm Password</Text>
 
       <TouchableHighlight onPress={registerAccount} underlayColor="#000000">
         <Text style={styles.buttons}>Register</Text>
@@ -78,11 +78,13 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     paddingBottom: "45%",
-    paddingTop: "5%",
+    paddingTop: "35%",
   },
   heading: {
-    fontSize: 20,
+    fontSize: 25,
     fontWeight: "bold",
+    textTransform: "uppercase",
+    marginBottom: 15,
   },
   inputs: {
     width: "80%",
@@ -90,7 +92,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     height: 45,
     fontSize: 16,
-    fontColor: "#0000000",
+    color: "#0000000",
+    paddingLeft: 10,
   },
   buttons: {
     padding: 15,
