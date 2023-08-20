@@ -5,9 +5,7 @@ import {
   View,
   FlatList,
   Image,
-} from "react-native-render-html";
-import { FlatList } from "react-native";
-import { error } from "console";
+} from "react-native";
 
 //component used as FlatList to display each video in the list
 const TubeItem = (props) => {
@@ -26,7 +24,6 @@ const TubeItem = (props) => {
           borderTopWidth: 2,
         }}
       >
-        //for the default thumbnail return my YT
         <Image
           style={{ width: "100%", height: 200 }}
           source={{ uri: props.imageSrc }}
@@ -44,7 +41,7 @@ const Video = ({ navigation }) => {
   const getVids = async () => {
     try {
       const response = await fetch(
-        "https://www.googleapis.com/youtube/v3/search?part=snippet&q=hdcamerapictures&type=video&key=AIzaSyAR0q5VqbMOfjk7gfP92QO_UQDLGx0Jz7c"
+        "https://www.googleapis.com/youtube/v3/search?part=snippet&q=pluralsight&type=video&key=AIzaSyAR0q5VqbMOfjk7gfP92QO_UQDLGx0Jz7c"
       );
       const vids = await response.json();
       // take the responses and put them in an array
@@ -70,11 +67,12 @@ const Video = ({ navigation }) => {
         <View style={{ paddingTop: 30 }}>
           <FlatList
             data={videoList}
-            renderItem={(item) => (
+            // keyExtractor={(item) => item.id.videoId}
+            renderItem={({ item }) => (
               <TubeItem
-                id={item.id}
+                id={item.id.videoId}
                 title={item.snippet.title}
-                imageSrc={item.snippet.thumbnail.high.url}
+                imageSrc={item.snippet.thumbnails.high.url}
                 chooseVid={selectVid}
               />
             )}
@@ -83,10 +81,10 @@ const Video = ({ navigation }) => {
       )}
       {!listLoaded && (
         <View style={{ paddingTop: 30 }}>
-          <Text>LOADING!!!</Text>
+          <Text>LOADING</Text>
         </View>
       )}
     </View>
   );
 };
-export default video;
+export default Video;

@@ -9,7 +9,7 @@ const Menu = () => {
       <View style={styles.buttonRow}>
         <TouchableOpacity
           style={styles.buttonStyles}
-          onPress={() => navigation.navigate("Login")}
+          onPress={() => navigation.navigate("Videos")}
         >
           <Text style={styles.buttonText}>Lesson</Text>
         </TouchableOpacity>
